@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_agregar_producto.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_dos.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_maps.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_mis_productos.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_sobre_nosotros.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_splash.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/view_producto_single.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

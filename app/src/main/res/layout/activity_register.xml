@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_gravity="center"
+android:background="@drawable/gradient1"
+android:padding="10dp"
+tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/tvRusuario"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
+        android:gravity="center"
+        android:text="Registrar Usuario"
+        android:textColor="@color/black"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="401dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/tvRusuario"
+        android:layout_marginTop="10dp"
+        android:hint="Nombre usuario"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/correo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nombre"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/contrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/correo"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@id/contrasena" />
+
+    <Button
+        android:id="@+id/btn_registro"
+        android:layout_width="388dp"
+        android:layout_height="46dp"
+        android:layout_below="@+id/space"
+        android:layout_marginTop="12dp"
+        android:text="Registrar" />
+
+</RelativeLayout>

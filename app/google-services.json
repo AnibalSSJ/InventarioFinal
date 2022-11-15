@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "606783447328",
+    "project_id": "inventario-app-final",
+    "storage_bucket": "inventario-app-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606783447328:android:8f646be15f5e0dcc443745",
+        "android_client_info": {
+          "package_name": "com.quintana.inventariofinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606783447328-c189saul13ausi8rq2cno0r6ekk05983.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfkDnJ-xVsRD9bGOaWFAMQdCS_Q2ZlY6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606783447328-c189saul13ausi8rq2cno0r6ekk05983.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
