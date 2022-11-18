@@ -3,15 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_agregar.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_agregar_producto.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_dos.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_editar.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_maps.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_mis_productos.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_sobre_nosotros.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/activity_splash.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/view_producto_single.xml" value="0.1" />
+        <entry key="..\:/Users/atrom/AndroidStudioProjects/InventarioFinal/app/src/main/res/layout/view_producto_single.xml" value="0.264" />
       </map>
     </option>
   </component>

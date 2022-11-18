@@ -1,17 +1,26 @@
 package com.quintana.inventariofinal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.quintana.inventariofinal.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,17 +32,18 @@ import java.util.Map;
 
 public class AgregarProductoActivity extends AppCompatActivity {
     Button btn_add;
+
     EditText nombreProducto, precioProductoUnidad, cantidadProducto,precioProductoConjunto;
     Spinner spinnertipo;
     private FirebaseFirestore mFirestore;
-
+    private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_producto);
-
+        mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
 
         nombreProducto=(EditText) findViewById(R.id.eNombreProducto);
@@ -45,6 +55,8 @@ public class AgregarProductoActivity extends AppCompatActivity {
         ArrayAdapter<String> arreglo1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spinnertipo.setAdapter(arreglo1);
         btn_add= findViewById(R.id.bAgregarProducto);
+
+
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +75,9 @@ public class AgregarProductoActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
 
     }
 
@@ -90,9 +105,10 @@ public class AgregarProductoActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void volverAtras(View view){
         Intent volverAtaras = new Intent(this, ActivityDos.class);
         startActivity(volverAtaras);
     }
-
 }

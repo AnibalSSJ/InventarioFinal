@@ -12,6 +12,7 @@ public class Producto {
         this.precioProductoConjunto = precioProductoConjunto;
         this.precioProductoUnidad = precioProductoUnidad;
         this.spinnerTipo = spinnerTipo;
+
     }
 
     public String getCantidadProducto() {
@@ -53,4 +54,6 @@ public class Producto {
     public void setSpinnerTipo(String spinnerTipo) {
         this.spinnerTipo = spinnerTipo;
     }
+
+
 }

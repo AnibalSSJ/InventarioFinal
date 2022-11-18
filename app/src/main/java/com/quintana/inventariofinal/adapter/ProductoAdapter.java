@@ -3,11 +3,13 @@ package com.quintana.inventariofinal.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -96,6 +99,7 @@ public class ProductoAdapter extends FirestoreRecyclerAdapter<Producto,ProductoA
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView cantidad, Producto, ProductoConjunto, ProductoUnidad, Tipo;
         Button btn_Eliminar, btn_editar;
+
 
 
         public ViewHolder(@NonNull View itemView) {

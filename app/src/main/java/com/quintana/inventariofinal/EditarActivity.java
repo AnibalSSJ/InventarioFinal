@@ -1,9 +1,12 @@
 package com.quintana.inventariofinal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,6 +15,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.quintana.inventariofinal.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +35,8 @@ public class EditarActivity extends AppCompatActivity {
     Spinner Espinnertipo;
     private String productoId;
     private FirebaseFirestore mFirestore;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +52,9 @@ public class EditarActivity extends AppCompatActivity {
         ArrayAdapter<String> arreglo1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         Espinnertipo.setAdapter(arreglo1);
         bActualizar = findViewById(R.id.bActualizar);
-
+        mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
         productoId = getIntent().getStringExtra("productoId");
-
 
         bActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +75,7 @@ public class EditarActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 
@@ -96,5 +106,4 @@ public class EditarActivity extends AppCompatActivity {
         Intent volverAtaras = new Intent(this, MisProductos.class);
         startActivity(volverAtaras);
     }
-
 }
