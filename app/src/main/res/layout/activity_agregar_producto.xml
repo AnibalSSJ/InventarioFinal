@@ -35,6 +35,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agregar Img" />
+
             <EditText
                 android:id="@+id/eNombreProducto"
                 android:layout_width="match_parent"

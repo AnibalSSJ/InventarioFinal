@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.quintana.inventariofinal.EditarActivity;
 import com.quintana.inventariofinal.MisProductos;
 import com.quintana.inventariofinal.R;
@@ -26,12 +28,14 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
 public class ProductoAdapter extends FirestoreRecyclerAdapter<Producto,ProductoAdapter.ViewHolder> {
     FirebaseFirestore mFirestore;
+    StorageReference mStorage;
     Activity activity;
 
 
@@ -45,6 +49,7 @@ public class ProductoAdapter extends FirestoreRecyclerAdapter<Producto,ProductoA
         super(options);
         this.activity = activity;
         mFirestore = FirebaseFirestore.getInstance();
+        mStorage= FirebaseStorage.getInstance().getReference();
 
     }
 
@@ -58,6 +63,10 @@ public class ProductoAdapter extends FirestoreRecyclerAdapter<Producto,ProductoA
         viewHolder.ProductoConjunto.setText(Producto.getPrecioProductoConjunto());
         viewHolder.ProductoUnidad.setText(Producto.getPrecioProductoUnidad());
         viewHolder.Tipo.setText(Producto.getSpinnerTipo());
+
+
+
+
 
         viewHolder.btn_editar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +108,7 @@ public class ProductoAdapter extends FirestoreRecyclerAdapter<Producto,ProductoA
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView cantidad, Producto, ProductoConjunto, ProductoUnidad, Tipo;
         Button btn_Eliminar, btn_editar;
+        ImageView imgProducto;
 
 
 
@@ -111,6 +121,7 @@ public class ProductoAdapter extends FirestoreRecyclerAdapter<Producto,ProductoA
             Tipo = itemView.findViewById(R.id.tvTipo);
             btn_Eliminar = itemView.findViewById(R.id.btn_Eliminar);
             btn_editar = itemView.findViewById(R.id.btn_editar);
+
         }
 
 

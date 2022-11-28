@@ -32,19 +32,31 @@ import java.util.Map;
 
 public class AgregarProductoActivity extends AppCompatActivity {
     Button btn_add;
+    Button btnIMG;
 
     EditText nombreProducto, precioProductoUnidad, cantidadProducto,precioProductoConjunto;
     Spinner spinnertipo;
     private FirebaseFirestore mFirestore;
     private FirebaseAuth mAuth;
+    private ProgressDialog mProgressDialog;
+
+    private StorageReference mStorage;
+    private static final int GALLERY_INTENT = 1;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_producto);
+
+        String id = getIntent().getStringExtra("id_producto");
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
+        mStorage= FirebaseStorage.getInstance().getReference();
+
+        btnIMG= findViewById(R.id.btn_photo);
+        mProgressDialog = new ProgressDialog(this);
 
         nombreProducto=(EditText) findViewById(R.id.eNombreProducto);
         precioProductoUnidad=(EditText) findViewById(R.id.ePrecioUnidad);
@@ -56,29 +68,58 @@ public class AgregarProductoActivity extends AppCompatActivity {
         spinnertipo.setAdapter(arreglo1);
         btn_add= findViewById(R.id.bAgregarProducto);
 
-
-
-        btn_add.setOnClickListener(new View.OnClickListener() {
+        btnIMG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombre = nombreProducto.getText().toString().trim();
-                String cantidad = cantidadProducto.getText().toString().trim();
-                String precioUnidad = precioProductoUnidad.getText().toString().trim();
-                String precioConjunto= precioProductoConjunto.getText().toString().trim();
-                String seleccion = spinnertipo.getSelectedItem().toString().trim();
-
-
-                if (nombre.isEmpty() && cantidad.isEmpty() && precioUnidad.isEmpty() && precioConjunto.isEmpty() && seleccion.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Ingresar los datos", Toast.LENGTH_SHORT).show();
-                }else{
-                    postProducto(nombre, cantidad, precioUnidad, precioConjunto, seleccion);
-                }
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,GALLERY_INTENT);
             }
         });
 
 
 
+            btn_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String nombre = nombreProducto.getText().toString().trim();
+                    String cantidad = cantidadProducto.getText().toString().trim();
+                    String precioUnidad = precioProductoUnidad.getText().toString().trim();
+                    String precioConjunto = precioProductoConjunto.getText().toString().trim();
+                    String seleccion = spinnertipo.getSelectedItem().toString().trim();
 
+
+                    if (nombre.isEmpty() && cantidad.isEmpty() && precioUnidad.isEmpty() && precioConjunto.isEmpty() && seleccion.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Ingresar los datos", Toast.LENGTH_SHORT).show();
+                    } else {
+                        postProducto(nombre, cantidad, precioUnidad, precioConjunto, seleccion);
+                    }
+                }
+            });
+        }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode== GALLERY_INTENT && resultCode == RESULT_OK){
+
+            mProgressDialog.setTitle("Agregando Imagen...");
+            mProgressDialog.setMessage("Agregando imagen al inventario");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
+
+
+            Uri uri = data.getData();
+            StorageReference filePath = mStorage.child("fotos").child(uri.getLastPathSegment());
+            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    mProgressDialog.dismiss();
+                    Toast.makeText(AgregarProductoActivity.this, "Imagen Agregada Con Exito", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     private void postProducto(String nombre, String cantidad, String precioUnidad, String precioConjunto, String seleccion) {
